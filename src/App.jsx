@@ -1,15 +1,19 @@
 
 import { Route,Link,Routes,BrowserRouter } from 'react-router-dom'
 import {Quiz,CreateQuiz, Dashboard, Login, QuizList, Register, ResultQuiz,Welcome,Home} from './pages'
-import PrivateRoute from './utils/PrivateRoute'
+
 import { AuthProvider } from './context'
+import { Navbar } from './components'
 const App = () => {
 
   return(
+    
     <BrowserRouter>
+    <AuthProvider>
+<Navbar/>
 <Routes>
 <Route path="/" element={<Welcome/>}/>
-<AuthProvider>
+
 <Route path="/home" element={<Home/>}/>
   <Route path="/resgister" element={<Register/>}/>
   <Route path="/login" element={<Login/>}/>
@@ -18,9 +22,11 @@ const App = () => {
   <Route path="/quiz-list" element={<QuizList/>}/>
   <Route path="/quiz/:quizId" element={<Quiz/>}/>
   <Route path="/result/:quizId" element={<ResultQuiz/>}/>
-  </AuthProvider>
+  
 </Routes>
+</AuthProvider>
 </BrowserRouter>
+
   )
 }
 export default App
