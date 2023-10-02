@@ -7,10 +7,10 @@ import { Navbar } from './components'
 const App = () => {
 
   return(
-    
+   
     <BrowserRouter>
-    <AuthProvider>
-<Navbar/>
+     <AuthProvider>
+      <Navbar/>
 <Routes>
 <Route path="/" element={<Welcome/>}/>
 
@@ -26,6 +26,8 @@ const App = () => {
 </Routes>
 </AuthProvider>
 </BrowserRouter>
+
+
 
   )
 }
